@@ -8,7 +8,6 @@ resource "google_container_cluster" "primary" {
   location = "${local.region}"
 
   network         = "default"
-  subnetwork      = google_compute_subnetwork.private.self_link
 
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
