@@ -1,4 +1,5 @@
 resource "google_service_account" "default" {
+  project    = local.project_id
   account_id   = "service-account-id"
   display_name = "Service Account"
 }
@@ -6,6 +7,7 @@ resource "google_service_account" "default" {
 resource "google_container_cluster" "primary" {
   name     = "${local.gke_cluster_name}"
   location = "${local.region}"
+  project  = local.project_id
 
   network         = "default"
 
